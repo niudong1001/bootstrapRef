@@ -1,0 +1,17 @@
+.a{
+	.button-variant(white,lightblue,darken(lightblue,10%));
+}
+.b{
+	.button-size(1em,2em,1em,1em,1em);
+}
+.c{
+	.panel-variant(red,lightblue,rgb(10,10,10),blue);
+}
+.col(@index) when (@index=1){
+	@item:~".col-xs-@{index}";
+	.col((@index+1),@item);
+}
+.col(@index,@list) when (@index<12){
+	@item:~".col-xs-@{index}";
+	.col(@index+1,~"@{list},@{item}");
+}
